@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindQuestor - Level 2 Questions</title>
+    <link rel="stylesheet" href="level.css">
+</head>
+<body>
+    <header>
+        <h1>Level 2 Questions</h1>
+    </header>
+    
+    <div class="question-container">
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What is the capital of France?</p>
+                <label><input type="radio" name="q1" value="a"> A) Berlin</label><br>
+                <label><input type="radio" name="q1" value="b"> B) Madrid</label><br>
+                <label><input type="radio" name="q1" value="c"> C) Paris</label><br>
+                <label><input type="radio" name="q1" value="d"> D) Rome</label>
+            </div>
+
+            <!-- Repeat similar blocks for questions 2 to 10 -->
+            <div class="question">
+                <p>2. What is the largest planet in our solar system?</p>
+                <label><input type="radio" name="q2" value="a"> A) Earth</label><br>
+                <label><input type="radio" name="q2" value="b"> B) Jupiter</label><br>
+                <label><input type="radio" name="q2" value="c"> C) Saturn</label><br>
+                <label><input type="radio" name="q2" value="d"> D) Mars</label>
+            </div>
+
+            <!-- Add similar blocks for questions 3 to 10 -->
+
+            <div class="question">
+                <p>3. What is the boiling point of water?</p>
+                <label><input type="radio" name="q3" value="a"> A) 90°C</label><br>
+                <label><input type="radio" name="q3" value="b"> B) 100°C</label><br>
+                <label><input type="radio" name="q3" value="c"> C) 80°C</label><br>
+                <label><input type="radio" name="q3" value="d"> D) 70°C</label>
+            </div>
+
+            <!-- Add more questions (4-10) here -->
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            // Display a popup message
+            alert("You have submitted your answers!");
+        }
+    </script>
+</body>
+</html>

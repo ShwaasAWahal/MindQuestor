@@ -19,7 +19,6 @@ cursor.execute("""create table if not exists results(
                Test_1_Score int default NULL,
                Test_2_Score int default NULL,
                Test_3_Score int default NULL,
-               Test_4_Score int default NULL,
                FOREIGN KEY (USER_ID) REFERENCES user_details(ID))""")
 con.commit()
 

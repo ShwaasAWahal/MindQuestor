@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindQuestor - Level 1 Questions</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'level.css')}}">
+</head>
+<body>
+    <header>
+        <h1>{{ subject }} Level {{ level }} Questions</h1>
+    </header>
+    
+    <div class="question-container">
+        <form action="#" id="quizForm" . method = 'post'>
+            <!-- Questions -->
+            {% for question in questions %}
+            <div class="question">
+                <p>{{ loop.index }}. {{ question }}</p>
+                <label><input type="radio" name="q{{ loop.index }}" value="a"> A) {{ questions[question][0] }}</label><br>
+                <label><input type="radio" name="q{{ loop.index }}" value="b"> B) {{ questions[question][1] }}</label><br>
+                <label><input type="radio" name="q{{ loop.index }}" value="c"> C) {{ questions[question][2] }}</label><br>
+                <label><input type="radio" name="q{{ loop.index }}" value="d"> D) {{ questions[question][3] }}</label>
+            </div>
+            {% endfor %}
+
+            <button type="submit" onclick="submitQuiz()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            // Display a popup message
+            alert("You have submitted your answers!");
+        }
+    </script>
+</body>
+</html>

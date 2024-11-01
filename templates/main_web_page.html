@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindQuestor - Home</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'main.css')}}">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <h1>MindQuestor</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('SignIn') }}">Sign In</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="subject-container">
+        <!-- Links to different subjects -->
+         
+        <a href="/subjects/math" class="subject-box" >Math</a>
+        <a href="/subjects/physics" class="subject-box">Physics</a>
+        <a href="/subjects/python" class="subject-box">Python</a>
+        <a href="/subjects/geography" class="subject-box">Geography</a>
+        <a href="/subjects/english" class="subject-box">English</a>
+    </div>
+</body>
+</html>

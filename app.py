@@ -1,8 +1,13 @@
 from flask import Flask , render_template , url_for , request , redirect
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+
+
+
 app = Flask("__name__")
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 
 app.app_context().push()
@@ -35,39 +40,36 @@ def home():
     return render_template('main_web_page.html' , sub = subject)
 
 
-@app.route("/signin" , methods = ['POST' , 'GET'])
-def SignIn():
+@app.route("/login" , methods = ['POST' , 'GET'])
+def LogIn():
+    auth = True
     if request.method == 'POST':
-        ''' 
-    already_exists = True
-        auth = False
-        if request.method == 'POST':
-            user = User.query.filter_by(user_name = request.form['email']).first()
-            if request.form['email'] in User.query.all():
-                already_exists = True
-                email = user.Email
-                password = user.password
-                if password == request.form['password']:
-                    auth = True
-        print("User Exists: " , already_exists)
-        print("Password?: " , auth)
-        '''
-        pass
-    return render_template('signin.html')
+        user = User.query.filter_by(Email = request.form['email']).first()
+        if user != None:
+            password = request.form['password']
+            print(bcrypt.check_password_hash(user.password , password))
+            if bcrypt.check_password_hash(user.password , password):
+                auth = True
+                return redirect(url_for("home"))
+            else:
+                auth = False
+    return render_template('login.html' , auth = auth)
 
 @app.route("/signup" , methods = ['GET' , 'POST'])
 def SignUp():
     already_exists = False
     if request.method == 'POST':
-        if not User.query.filter_by(Email = request.form['email']).first():
+        user = User.query.filter_by(Email = request.form['email']).first()
+        if not user:
+            hashed_password = bcrypt.generate_password_hash(request.form['password']).decode("utf-8")
             user = User(
                 user_name = request.form['username'] ,
                 Email = request.form['email'] ,
-                password = request.form['password']
+                password = hashed_password
                 )
             db.session.add(user)
             db.session.commit()
-            print(User.query.filter_by(Email = request.form['email']).first())
+            print(user)
         else:
             already_exists = True
         print(already_exists)
@@ -76,13 +78,14 @@ def SignUp():
 
 @app.route("/subjects/<sub>")
 def Subjects(sub):
-    return render_template("subject.html" , subject = sub , subC = sub.capitalize())
+    return render_template("subject.html" , subject = sub)
 
 @app.route("/subjects/<sub>/<level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
     if request.method == 'POST':
-        for i in request.form:
-            print(request.form[i])
+        print(dict(request.form))
+        return redirect(url_for('home'))
+
     return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = level)
 
 

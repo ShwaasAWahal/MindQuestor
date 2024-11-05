@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindQuestor - {{subC}}</title>
+    <title>MindQuestor - {{subject.capitalize()}}</title>
     <link rel="stylesheet" href="{{url_for('static' , filename = 'subjects.css')}}">
 </head>
 <body>
     <header>
-        <h1>{{ subC }} Levels</h1>
+        <h1>{{ subject.capitalize() }} Levels</h1>
     </header>
     <div class="level-container">
         <!-- Links to different levels in Math -->

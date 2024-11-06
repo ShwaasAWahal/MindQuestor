@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindQuestor - Account</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'subjects.css')}}">
+</head>
+<body>
+    <header>
+        <h1>{{current_user.user_name}}</h1>
+    </header>
+    <div class="level-container">
+        <!-- Links to different levels in Math -->
+        <a href="{{ url_for('logout') }}" class="level-box">Log out</a>
+    </div>
+</body>
+</html>

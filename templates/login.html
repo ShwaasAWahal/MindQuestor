@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindQuestor - Log In</title>
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'signinsignup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'siginsignup.css')}}">
 </head>
 <body>
     <div class="container">
@@ -13,30 +13,14 @@
             <form action = "#" method = "post">
                 <input type="email" placeholder="Email" name = "email" required>
                 <input type="password" placeholder="Password" name = "password" required>
-                <button type="submit" 
-                {% if auth %}
-                    onclick="authError()"
-                {% else %}
-                    onclick="success()"
-                {% endif %}>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
             <p>Don't have an account? 
                 <!-- Anchor to the sign-up page, opens in a new tab -->
-                <a href="{{url_for('SignUp')}}">Sign up here</a>
+                <a href="{{url_for('SignUp')}}">Sign up</a>
             </p>
         </div>
     </div>
-    <script>
-        function authError() {
-            // Display a popup message
-            alert("Log in Error! Please check your email and password");
-        }
-
-        function success() {
-            // Display a popup message
-            alert("Welcome to MindQuestor");
-        }
-    </script>
     
 </body>
 </html>

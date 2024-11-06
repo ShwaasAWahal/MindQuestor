@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindQuestor - Sign Up</title>
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'signinsignup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'siginsignup.css')}}">
 </head>
 <body>
     <div class="container">
@@ -14,10 +14,10 @@
                 <input type="text" placeholder="Full Name" name = "username" required>
                 <input type="email" placeholder="Email" name = "email" required>
                 <input type="password" placeholder="Password" name = "password" required>
-                <button type="submit"{% if exists %} onclick="userExists()" {% endif %}>Sign Up</button>
+                <button type="submit"{% if exists %} onclick="userExists()" {% else %} onclick="success()" {% endif %}>Sign Up</button>
             </form>
             <p>Already have an account? 
-                <a href="{{url_for('SignIn')}}" target="_blank">Sign in here</a>
+                <a href="{{url_for('LogIn')}}">Log in</a>
             </p>
         </div>
     </div>
@@ -26,6 +26,11 @@
         function userExists() {
             // Display a popup message
             alert("This User already exists");
+        }
+
+        function success() {
+            // Display a popup message
+        alert("Successfully Created Acount , Please Login!");
         }
     </script>
 </body>

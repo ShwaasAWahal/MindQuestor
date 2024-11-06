@@ -1,17 +1,29 @@
 from flask import Flask , render_template , url_for , request , redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_login import   LoginManager, login_user , current_user , UserMixin , logout_user
 
 
 
 app = Flask("__name__")
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY'] = '86259b855ea5dfb53e9e809e6d8dbe7f'
+
 bcrypt = Bcrypt(app)
+
 db = SQLAlchemy(app)
 
+login_manager = LoginManager(app)
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
 app.app_context().push()
-class User(db.Model):
+class User(db.Model , UserMixin):
     id = db.Column(db.Integer , primary_key = True)
     user_name = db.Column(db.String(255) ,nullable = False )
     Email = db.Column(db.String(255) ,nullable = False )
@@ -36,28 +48,26 @@ questions = {"What is 1 + 1" : [1 ,2 ,3 ,4] , "What is 2+2" : [3 , 5 , 6 , 8] , 
 @app.route("/")
 @app.route("/home" , methods = ['GET' , 'POST'])
 def home():
-    subject = ""
-    return render_template('main_web_page.html' , sub = subject)
+    return render_template('main_web_page.html' )
 
 
 @app.route("/login" , methods = ['POST' , 'GET'])
 def LogIn():
-    auth = True
     if request.method == 'POST':
         user = User.query.filter_by(Email = request.form['email']).first()
         if user != None:
             password = request.form['password']
-            print(bcrypt.check_password_hash(user.password , password))
             if bcrypt.check_password_hash(user.password , password):
-                auth = True
-                return redirect(url_for("home"))
-            else:
-                auth = False
-    return render_template('login.html' , auth = auth)
+                login_user(user)
+                return redirect(url_for("home" ))    
+    return render_template('login.html')
 
 @app.route("/signup" , methods = ['GET' , 'POST'])
 def SignUp():
+    
     already_exists = False
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         user = User.query.filter_by(Email = request.form['email']).first()
         if not user:
@@ -69,25 +79,34 @@ def SignUp():
                 )
             db.session.add(user)
             db.session.commit()
-            print(user)
+            return redirect(url_for('LogIn'))
         else:
             already_exists = True
-        print(already_exists)
     return render_template('signup.html' , exists = already_exists)
 
 
 @app.route("/subjects/<sub>")
 def Subjects(sub):
+    
     return render_template("subject.html" , subject = sub)
 
 @app.route("/subjects/<sub>/<level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
+    
     if request.method == 'POST':
         print(dict(request.form))
         return redirect(url_for('home'))
 
     return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = level)
 
+@app.route("/account")
+def account():
+    return render_template("account.html" )
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("home" ))
 
 
 if __name__ == '__main__':

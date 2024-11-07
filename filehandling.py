@@ -1,12 +1,16 @@
 def load_questions(subject,level):
-    questions = []
-    with open(f"static/subjects/{subject}/{level}.txt","r",encoding="utf-8") as f:
+    dif = "1"
+    if level == 1:
+        dif = "easy"
+    elif level == 2:
+        dif = "medium"
+    elif level == 3:
+        dif = "hard"
+
+    question = {}
+    with open(f"static/subjects/{subject}/{dif}.txt","r",encoding="utf-8") as f:
         for line in f:
             parts = line.split('|')  
             if len(parts) == 6:  
-                question = {
-                    parts[0] :[parts[1],parts[2],parts[3],parts[5],parts[5]] 
-                }
-                questions.append(question)
-    return questions
-print(load_questions("python","easy"))
+                question[parts[0]]  = [parts[1],parts[2],parts[3],parts[5],parts[5]] 
+    return question

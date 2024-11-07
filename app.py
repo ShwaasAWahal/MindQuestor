@@ -2,6 +2,7 @@ from flask import Flask , render_template , url_for , request , redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import   LoginManager, login_user , current_user , UserMixin , logout_user
+from filehandling import load_questions
 
 
 
@@ -44,6 +45,8 @@ class Result(db.Model):
     
 
 questions = {"What is 1 + 1" : [1 ,2 ,3 ,4] , "What is 2+2" : [3 , 5 , 6 , 8] , "what is 3 + 3" : [2 , 3 , 4 , 6]}
+
+
 
 @app.route("/")
 @app.route("/home" , methods = ['GET' , 'POST'])
@@ -90,14 +93,14 @@ def Subjects(sub):
     
     return render_template("subject.html" , subject = sub)
 
-@app.route("/subjects/<sub>/<level>" , methods = ['GET' , 'POST'])
+@app.route("/subjects/<sub>/<int:level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
     
     if request.method == 'POST':
         print(dict(request.form))
         return redirect(url_for('home'))
 
-    return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = level)
+    return render_template("levels.html" , questions = load_questions(sub,level) , subject = sub.capitalize() , level = level)
 
 @app.route("/account")
 def account():
@@ -107,7 +110,6 @@ def account():
 def logout():
     logout_user()
     return redirect(url_for("home" ))
-
 
 if __name__ == '__main__':
     app.run(debug = True)

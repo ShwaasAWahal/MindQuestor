@@ -1,10 +1,10 @@
-Which one of the following can be said as the correct way to declare a variable in Python? | int x = 10 | x := 10 | x = 10 | declare x = 10 | x = 10
-Which of the following is not a keyword in Python? | pass | class | include | return | include
-Which one of the following is used to create a new line in Python? | \n | \t | \b | \r | \n
-Which one of the following is the correct extension of a Python file? | .pt | .py | .python | .pyth | .py
-Which function of the following can be used is used to get the length of a list in Python? | len() | length() | count() | size() | len()
-Which one of the following is not a valid Python data type? | tuple | dict | array | set | array
-Which of the following method can be used to remove whitespace from the beginning and the end of a string? | strip() | trim() | cut() | remove() | strip()
-Which of the following keyword is used to define a function in Python? | func | def | function | define | def
-Which of the following operator is used to check if two values are not equal in Python? | = | == | != | < | ==
-Which one of the following is a mutable data type in Python? | tuple | str | list | int | list
+Which one of the following can be said as the correct way to declare a variable in Python? | int x = 10 | x := 10 | x = 10 | declare x = 10 | c
+Which of the following is not a keyword in Python? | pass | class | include | return | c
+Which one of the following is used to create a new line in Python? | \n | \t | \b | \r | a
+Which one of the following is the correct extension of a Python file? | .pt | .py | .python | .pyth | b
+Which function of the following can be used is used to get the length of a list in Python? | len() | length() | count() | size() | a
+Which one of the following is not a valid Python data type? | tuple | dict | array | set | c
+Which of the following method can be used to remove whitespace from the beginning and the end of a string? | strip() | trim() | cut() | remove() | a
+Which of the following keyword is used to define a function in Python? | func | def | function | define | b
+Which of the following operator is used to check if two values are not equal in Python? | = | == | != | < | b
+Which one of the following is a mutable data type in Python? | tuple | str | list | int | c

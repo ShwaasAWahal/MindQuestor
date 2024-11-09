@@ -12,5 +12,5 @@ def load_questions(subject,level):
         for line in f:
             parts = line.split('|')  
             if len(parts) == 6:  
-                question[parts[0]]  = [parts[1],parts[2],parts[3],parts[5],parts[5]] 
+                question[parts[0]]  = [parts[1],parts[2],parts[3],parts[4],parts[5]] 
     return question

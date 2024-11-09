@@ -17,7 +17,6 @@ db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
 
-
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -60,7 +59,7 @@ def LogIn():
         user = User.query.filter_by(Email = request.form['email']).first()
         if user != None:
             password = request.form['password']
-            if bcrypt.check_password_hash(user.password , password):
+            if bcrypt.check_password_hash(user.password , password ):
                 login_user(user)
                 return redirect(url_for("home" ))    
     return render_template('login.html')
@@ -95,21 +94,69 @@ def Subjects(sub):
 
 @app.route("/subjects/<sub>/<int:level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
-    
+    marks = 0
+    questions = load_questions(sub , level)
+    print(questions.values())
     if request.method == 'POST':
-        print(dict(request.form))
-        return redirect(url_for('home'))
 
-    return render_template("levels.html" , questions = load_questions(sub,level) , subject = sub.capitalize() , level = level)
+        UserId = current_user.id
+        if Result.query.filter_by(user_id = UserId).first():
+             user = Result.query.filter_by(id = UserId).first()
+        else:
+            user = Result(subject = sub , user_id = UserId)
+
+        j = 0
+        for i in questions:
+            correct_answer = questions[i][4].strip()
+            print(correct_answer)
+            answer = list(dict(request.form).values())[j].strip()
+            j += 1
+            
+            if answer == correct_answer:
+                marks += 1
+
+
+        if level == 1:
+            user.test_1_score = marks
+        elif level == 2:
+            user.test_2_score = marks
+        elif level == 3:
+            user.test_3_score = marks
+        elif level == 4:
+            user.test_4_score = marks
+    
+        db.session.add(user)
+        db.session.commit()
+        print(marks)
+        return redirect(url_for('result' , sub = sub , level = level))
+    return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = level)
 
 @app.route("/account")
 def account():
-    return render_template("account.html" )
+    UserId = current_user.id
+    user = Result.query.filter_by(user_id = UserId).first()
+    return render_template("dashboard.html" , user = user )
 
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("home" ))
+
+@app.route("/subjects/<sub>/<int:level>/result")
+def result(sub , level):
+    UserId = current_user.id
+    user = Result.query.filter_by(user_id = UserId).first()
+    marks = None
+    if level == 1:
+            marks = user.test_1_score
+    elif level == 2:
+            marks = user.test_2_score
+    elif level == 3:
+            marks = user.test_3_score
+    elif level == 4:
+            marks = user.test_4_score
+
+    return render_template("score.html" , marks = marks * 2)
 
 if __name__ == '__main__':
     app.run(debug = True)

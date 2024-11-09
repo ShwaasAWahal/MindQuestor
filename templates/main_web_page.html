@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindQuestor - Home</title>
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'main.css')}}">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+
+    <!-- Logo and Navigation Section -->
     <header>
         <div class="logo">
             <h1>MindQuestor</h1>
         </div>
         <nav>
             <ul>
-                <li>
-                    {% if current_user.is_authenticated %}
-                        <a href="/account">Account</a>  
-                    {% else %}
-                        <a href="{{ url_for('LogIn') }}">Log In</a>
-                    {% endif %}
-                </li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="subject-container">
-        <!-- Links to different subjects -->
-         
-        <a href="/subjects/math" class="subject-box" >Engineering Mathematics</a>
-        <a href="/subjects/physics" class="subject-box">Mechanics</a>
-        <a href="/subjects/python" class="subject-box">Computational Thinking & Programming</a>
-        <a href="/subjects/english" class="subject-box">Java</a>
+    <!-- Main Content Section -->
+    <div class="main-content">
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>About MindQuestor</h2>
+            <p>MindQuestor is an interactive platform designed to help students strengthen their knowledge in various subjects through quizzes and engaging content. Each subject features multiple levels to challenge and improve your understanding. Join us to track your progress, review past quizzes, and become a master in topics such as Math, Physics, Python, Geography, and English.</p>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="divider"></div>
+
+        <!-- Subject Links Section -->
+        <div class="subject-container">
+            <a href="math.html" class="subject-box">Engineering Mathematics</a>
+            <a href="physics.html" class="subject-box">Mechanics</a>
+            <a href="python.html" class="subject-box">Computational Thinking & Programming</a>
+            <a href="geography.html" class="subject-box">Java</a>
+        </div>
+
     </div>
+
 </body>
 </html>

@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Dashboard</title>
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'styles.css')}}">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="dashboard-container">
         <div class="profile">
             <h2>My Profile</h2>
-            <p><strong>Name:</strong> {{current_user.user_name}}</p>
-            <p><strong>Email:</strong> {{current_user.Email}}</p>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+
+        
+            <form action="/logout" method="POST">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
         </div>
         <div class="test-history">
             <h2>Test History</h2>

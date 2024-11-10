@@ -8,37 +8,41 @@
 </head>
 <body>
 
-  
+    <!-- Logo and Navigation Section -->
     <header>
         <div class="logo">
             <h1>MindQuestor</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('account')}}">Account</a></li>
+                {% else %}
+                    <li><a href="{{url_for('LogIn')}}">Log In</a></li>
+                    <li><a href="{{url_for('SignUp')}}">Sign Up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
 
-  
+    <!-- Main Content Section -->
     <div class="main-content">
 
-       
+        <!-- About Section -->
         <div class="about-section">
             <h2>About MindQuestor</h2>
-            <p>MindQuestor is an interactive platform designed to help students strengthen their knowledge in various subjects through quizzes and engaging content. Each subject features multiple levels to challenge and improve your understanding. Join us to track your progress, review past quizzes, and become a master in many topics.</p>
+            <p>MindQuestor is an interactive platform designed to help students strengthen their knowledge in various subjects through quizzes and engaging content. Each subject features multiple levels to challenge and improve your understanding. Join us to track your progress, review past quizzes, and become a master in topics such as Math, Physics, Python, Geography, and English.</p>
         </div>
 
-       
+        <!-- Divider Line -->
         <div class="divider"></div>
 
-      
+        <!-- Subject Links Section -->
         <div class="subject-container">
-            <a href="math.html" class="subject-box">Engineering Mathematics</a>
-            <a href="physics.html" class="subject-box">Physics</a>
-            <a href="python.html" class="subject-box">Computational Thinking & Programming</a>
-            <a href="geography.html" class="subject-box">Java</a>
+            <a href="/subjects/math" class="subject-box">Engineering Mathematics</a>
+            <a href="/subjects/physics" class="subject-box">Mechanics</a>
+            <a href="/subjects/python" class="subject-box">Computational Thinking & Programming</a>
+            <a href="/subjects/java" class="subject-box">Java</a>
         </div>
 
     </div>

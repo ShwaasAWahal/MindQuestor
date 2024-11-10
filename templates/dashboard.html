@@ -10,20 +10,36 @@
     <div class="dashboard-container">
         <div class="profile">
             <h2>My Profile</h2>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Name:</strong> {{current_user.user_name}}</p>
+            <p><strong>Email:</strong> {{current_user.Email}}</p>
 
         
-            <form action="/logout" method="POST">
+            <form action="/logout">
                 <button type="submit" class="logout-button">Logout</button>
             </form>
         </div>
         <div class="test-history">
             <h2>Test History</h2>
+            <h4> Easy </h4>
             <ul>
-                <li>Math Test - Score: 8/10</li>
-                <li>Physics Test - Score: 6/10</li>
-                <li>English Test - Score: 9/10</li>
+                <li>Math Test - Score: {{userMa.test_1_score}} /10</li>
+                <li>Physics Test - Score: {{userPh.test_1_score}} /10</li>
+                <li>Python Test - Score: {{userPy.test_1_score}} /10</li>
+                <li>Java Test - Score: {{userJa.test_1_score}} /10</li>
+            </ul>
+            <h4> Medium </h4>
+            <ul>
+                <li>Math Test - Score: {{userMa.test_2_score}} /10</li>
+                <li>Physics Test - Score: {{userPh.test_2_score}} /10</li>
+                <li>Python Test - Score: {{userPy.test_2_score}} /10</li>
+                <li>Java Test - Score: {{userJa.test_2_score}} /10</li>
+            </ul>
+            <h4> Hard </h4>
+            <ul>
+                <li>Math Test - Score: {{userMa.test_3_score}} /10</li>
+                <li>Physics Test - Score: {{userPh.test_3_score}} /10</li>
+                <li>Python Test - Score: {{userPy.test_3_score}} /10</li>
+                <li>Java Test - Score: {{userJa.test_3_score}} /10</li>
             </ul>
         </div>
     </div>

@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindQuestor - {{subject.capitalize()}}</title>
     <link rel="stylesheet" href="{{url_for('static' , filename = 'subjects.css')}}">
 </head>
+
 <body>
     <header>
-        <h1>{{ subject.capitalize() }} Levels</h1>
+        <h1>
+            {% if current_user.is_authenticated %}
+                {{ subject.capitalize() }} Levels
+            {% else %}
+                Please Login to attempt quizes
+            {% endif %} </h1>
     </header>
     <div class="level-container">
-        <!-- Links to different levels in Math -->
-        <a href="/subjects/{{subject}}/1" class="level-box">Level 1</a>
-        <a href="/subjects/{{subject}}/2"  class="level-box">Level 2</a>
-        <a href="/subjects/{{subject}}/3"  class="level-box">Level 3</a>
-        <a href="/subjects/{{subject}}/4"  class="level-box">Level 4</a>
+        {% if current_user.is_authenticated %}
+            <!-- Links to different levels in Math -->
+            <a href="/subjects/{{subject}}/1" class="level-box">Level 1</a>
+            <a href="/subjects/{{subject}}/2" class="level-box">Level 2</a>
+            <a href="/subjects/{{subject}}/3" class="level-box">Level 3</a>
+            <a href="/subjects/{{subject}}/4" class="level-box">Level 4</a>
+        {% else %}
+            <a href="{{url_for('LogIn')}}" class="level-box">Log in</a>
+            <a href="{{url_for('SignUp')}}" class="level-box">Sign Up</a>
+        {% endif %}
     </div>
 </body>
+
 </html>

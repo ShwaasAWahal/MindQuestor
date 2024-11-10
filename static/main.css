@@ -1,11 +1,9 @@
-/* main.css */
-
-/* Body and Basic Styles */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
 }
 
 /* Header Styles */
@@ -13,87 +11,100 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007BFF; /* Blue color */
-    color: white;
-    padding: 15px 30px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-header .logo h1 {
-    margin: 0;
+.logo h1 {
     font-size: 24px;
+    color: #333;
 }
 
-/* Navigation Styles */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 nav ul li {
-    margin-left: 20px;
+    display: inline;
+    margin-left: 15px;
 }
 
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-    border-radius: 5px;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    color: #4caf50;
 }
 
-/* Subject Container Styles */
-.subject-container {
+/* Main Content Layout */
+.main-content {
     display: flex;
-    justify-content: space-evenly; /* Ensure equal space between subjects */
-    align-items: center;
-    margin-top: 100px;
-    flex-wrap: nowrap; /* Prevent wrapping to next line */
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
 }
 
-.subject-box {
-    background-color: #28a745; /* Green background */
-    color: white;
-    width: 180px; /* Fixed width */
-    height: 150px; /* Fixed height */
+/* About Section (Left Side) */
+.about-section {
+    width: 40%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    color: #4caf50;
+    font-size: 24px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Divider Line */
+.divider {
+    width: 1px;
+    background-color: #ddd;
+    margin: 0 20px;
+}
+
+/* Subject Section (Right Side) */
+.subject-container {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.subject-container a {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: 10px;
+    padding: 20px;
+    background-color: #6fd5d7;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
     text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: transform 0.3s, background-color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.subject-box:hover {
-    transform: scale(1.05);
-    background-color: #218838; /* Darker green on hover */
+.subject-container a:nth-child(5) {
+    grid-column: span 2;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .subject-container {
-        flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    }
-
-    .subject-box {
-        width: 90%; /* Full width for small screens */
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
+.subject-container a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }

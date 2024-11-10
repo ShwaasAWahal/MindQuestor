@@ -95,7 +95,10 @@ def Subjects(sub):
 @app.route("/subjects/<sub>/<int:level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
     marks = 0
-    questions = load_questions(sub , level)
+    if level != 4:
+        questions = load_questions(sub , level)
+    else:
+         return redirect(url_for('error'))
     print(questions.values())
     if request.method == 'POST':
 
@@ -113,7 +116,7 @@ def level(sub , level):
             j += 1
             
             if answer == correct_answer:
-                marks += 1
+                marks += 2
 
 
         if level == 1:
@@ -134,8 +137,12 @@ def level(sub , level):
 @app.route("/account")
 def account():
     UserId = current_user.id
-    user = Result.query.filter_by(user_id = UserId).first()
-    return render_template("dashboard.html" , user = user )
+    userPy = Result.query.filter_by(user_id = UserId , subject = "python").first()
+    userPh = Result.query.filter_by(user_id = UserId , subject = "physics").first()
+    userMa = Result.query.filter_by(user_id = UserId , subject = "math").first()
+    userJa = Result.query.filter_by(user_id = UserId , subject = "java").first()
+    print(userPy , userPh , userMa , userJa)
+    return render_template("dashboard.html" , userPy = userPy , userPh = userPh , userMa = userMa , userJa = userJa)
 
 @app.route("/logout")
 def logout():
@@ -156,8 +163,12 @@ def result(sub , level):
     elif level == 4:
             marks = user.test_4_score
 
-    return render_template("score.html" , marks = marks * 2)
+    return render_template("score.html" , marks = marks)
 
+
+@app.route("/error")
+def error():
+     return render_template("error.html")
 if __name__ == '__main__':
     app.run(debug = True)
 

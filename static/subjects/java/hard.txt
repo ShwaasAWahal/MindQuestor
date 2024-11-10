@@ -1,0 +1,13 @@
+What will be the output of the following code? \n java \n class Test { \n public static void main(String[] args) { \n int x = 10; \n x = x++ * 2 + 3 \n System.out.println(x); \n } \n } | 20 | 23 | 24 | 25 | b 
+What is the result of the following code snippet? \n java \n int x = 0; \n int y = 7; \n for (int i = 0; i < 3; i++) { \n x += (y >> i);  \n } \n System.out.println(x); | 7 | 9 | 10 | 14 | c 
+What will the following code print? \n java \n String str = "Hello"; \n str.concat(" World"); \n System.out.println(str); | Hello | Hello World | Hello World! | null | a 
+What will be the output of the following code? \n java \n try { \n System.out.println(1/0); \n } catch (ArithmeticException e) { \n System.out.println("Division by zero"); \n} catch (Exception e) { \n System.out.println("General Exception"); \n } finally { \n System.out.println("Finally block"); \n} | Division by zero | Division by zero Finally block | General Exception Finally block | Finally block | b 
+Which of these best describes the behavior of the volatile keyword in Java? | Ensures a variable is visible to all threads after being written | Prevents a variable from being changed after it’s initialized. | Ensures that a variable is only updated in a synchronized block | Ensures that only one thread can access a variable at a time. | a
+What is the output of the following code? \n java \n int[] arr = {1, 2, 3, 4}; \n System.out.println(arr[2] + arr[1 * 2]); | 4 | 6 | 7 | 8 | b Given the following code, what will be printed? \n java \n class A { \n int x = 10; \n public void display() { \n System.out.println("A"); \n } \n } \n class B extends A { \n int x = 20; \n public void display() { \n System.out.println("B"); \n } \n } \nclass Test { \n public static void main(String[] args) { \n A obj = new B(); \n System.out.println(obj.x);\n obj.display();\n}\n} | 10 A | 20 A | 10 B | 20 B | c What will be the result of this code? \n java \n int a = 2, b = 3; \n System.out.println(Math.pow(a++, b++)); \n System.out.println(a + " " + b); | 8.0 and 2 3 | 8.0 and 3 3 | 8.0 and 3 4 | 16.0 and 2 3 | c 
+What will the following code output? \n java \n String s1 = "Java"; \n String s2 = new String("Java"); \n System.out.println(s1 == s2); \n  System.out.println(s1.equals(s2)); | true true | false true | true false | false false | b 
+Given the following code snippet, what will be printed? \n java \n List<Integer> list = Arrays.asList(1, 2, 3); \n for (int i = 0; i < list.size(); i++) { \n list.set(i, list.get(i) * 2); \n } \n System.out.println(list); | [2, 4, 6] | [1, 2, 3] | [2, 3, 4] | Throws an exception. | a 
+
+
+
+
+

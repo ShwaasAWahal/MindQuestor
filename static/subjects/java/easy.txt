@@ -1,0 +1,10 @@
+Which method is used to start a thread in Java? | start() | run() | execute() | begin() | a
+ Which package contains the Scanner class in Java? | java.io | java.net | java.lang | java.util | d
+Which of the following is the correct way to check if a string is empty in Java? | str.isEmpty() |str.length() == 0 | Both A and B | None of the above | c
+What is the default value of an int array element in Java? |  null | 0 | undefined | -1
+Which of the following is not a valid way to declare a String in Java? | String str = "Hello"; | String str = new String("Hello"); |  String str = String("Hello"); | String str; | c
+Which of the following statements is true about Java? | Java is platform-dependent |Java is compiled into machine code |  Java is both compiled and interpreted |  Java is a purely interpreted language | c 
+How do you convert a string to an integer in Java? | Integer.parseInt(str); |  Integer.valueOf(str); | int(str); | Both A and B | d
+Which method is used to compare two strings in Java, ignoring case differences? | compareToIgnoreCase()| equalsIgnoreCase() | compareTo() |  equals() | b
+Which operator is used to allocate memory for an object in Java? | allocate |  malloc| new| create | c 
+Which  these collections allows duplicates in Java? |  Set | List | Map | None of the above | b

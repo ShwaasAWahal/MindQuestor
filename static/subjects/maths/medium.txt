@@ -1,0 +1,21 @@
+For a function f(x)f(x)f(x) to be differentiable at x=ax = ax=a: | f(x)f(x)f(x) must be continuous at x=ax = ax=a | f(x)f(x)f(x) has a finite left-hand and right-hand limit at x=ax = ax=a | f(x)f(x)f(x) must be continuous and have a defined derivative at x=ax = ax=a |f(x)f(x)f(x) must be differentiable only from the left at x=ax = ax=a | c 
+The Cauchy Criterion for convergence of a sequence states that: | Every sequence is Cauchy. |A sequence is Cauchy if and only if it is convergent. | A sequence is Cauchy if it has a subsequence. |A sequence is Cauchy if its terms are bounded. | b 
+A function f(x)f(x)f(x) is concave up on an interval if: | f′(x)f'(x)f′(x) is positive on the interval | f′(x)f'(x)f′(x) is decreasing on the interval | f′′(x)>0f''(x) > 0f′′(x)>0 on the interval | f(x)f(x)f(x) is increasing on the interval | c 
+Which of the following sets is not part of the real number system? | Rational numbers | Imaginary numbers |Irrational numbers | Natural numbers | b 
+The Fixed Point Iteration Method is used to solve an equation of the form:| f(x)=0f(x) = 0f(x)=0 | f(x)=xf(x) = xf(x)=x | f(x)f(x)f(x) is concave | f′(x)=0f'(x) = 0f′(x)=0 | b
+Taylor’s Theorem provides an approximation for a function f(x)f(x)f(x) near x=ax = ax=a using:| A power series | Linear interpolation | Tangent lines |Polynomial terms based on the derivatives of f(x)f(x)f(x) at x=ax = ax=a | d 
+The Fundamental Theorem of Calculus relates: | Integration and differentiation | Summation and differentiation | Limits and continuity | Sequences and series | a
+The Riemann Sum is used to approximate: | The slope of a function | The maximum of a function | The definite integral of a function over an interval | The derivative of a function at a point | c 
+Beta and Gamma functions are used to evaluate:| Definite integrals involving polynomial functions | Improper integrals, especially those related to factorials and powers | Limits at infinity | Summations of finite series | b
+Which of the following is true about the Archimedean Property of real numbers? | For any real number x, there exists a real number y such that y>xy > xy>x.| For any two positive real numbers x and y, there exists a natural number nnn such that nx>ynx > ynx>y. | For any real number x, there exists an integer nnn such that x<nx < nx<n. | For any real number x, there exists a real number y such that y<xy < xy<x.
+
+
+
+
+
+
+
+
+
+
+

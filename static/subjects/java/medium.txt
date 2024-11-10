@@ -1,0 +1,10 @@
+Which of the following is used to read data from a file in Java? | FileInputStream | FileReader | BufferedReader | All of the above | d 
+What does the equals() method do in Java? | Compares object references | Compares the content of two strings | Checks if two numbers are equal | Checks if two arrays are equal
+What is the output of the following code? | java \n Copy code \n int x = 5; \n System.out.println(x++); | 5 |  6 | Error | 10 | a
+Which of the following is not a valid Java access modifier? | private | protected | public | default | d 
+How do you declare an array in Java? | int arr = {1, 2, 3}; | int[] arr = new int[3]; | array arr = new array(3); | int arr[3]; | b
+Which of the following is not a loop structure in Java? | for | while | do-while | foreach | d 
+Which of these is used to handle exceptions in Java? | try | catch |  finally | All of the above | d 
+What is the correct way to declare a constant in Java? | final int x = 10; | const int x = 10; | final constant x = 10; | int constant x = 10; | a
+What is the output of System.out.println(2 + 3 + "Hello");? | Hello5 |  5Hello | 23Hello | Hello23 | b 
+Which of these data types has the largest range? | byte | int  | long | double | d 

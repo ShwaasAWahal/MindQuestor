@@ -111,8 +111,9 @@ def level(sub , level):
         j = 0
         for i in questions:
             correct_answer = questions[i][4].strip()
-            print(correct_answer)
-            answer = list(dict(request.form).values())[j].strip()
+            values = list(dict(request.form).values())
+            if j < len(values):
+                answer = values[j].strip()
             j += 1
             
             if answer == correct_answer:

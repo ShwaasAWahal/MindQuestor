@@ -1,0 +1,10 @@
+Which of the following describes the function of a Schmitt Trigger? | It amplifies weak signals. | It eliminates noise from a signal by using hysteresis. | It limits the signal to a fixed amplitude range. | It rectifies an AC signal into DC. | b
+Which of the following components primarily determines the cutoff frequency in an RC low-pass filter? | The resistor alone | The capacitor alone | Both the resistor and capacitor | The supply voltage | c
+A 5 kg block slides down a frictionless incline from a height of 10 meters. When it reaches the bottom of the incline, it collides elastically with a 2 kg block at rest on a horizontal surface. What is the speed of the 5 kg block immediately after the collision? | 4 m/s | 2 m/s | 0 m/s | 6 m/s | d
+Two particles of masses 1 kg and 3 kg are moving toward each other with velocities of 6 m/s and 2 m/s, respectively. If they collide head-on and stick together, what is the final velocity of the combined mass? | 0 m/s | 1 m/s | 2 m/s | -1 m/s | a
+A mass of 0.5 kg is attached to a spring with a spring constant of 100 N/m. It is displaced 0.1 m from equilibrium and released. What is the maximum speed of the mass during its motion? | 1 m/s | 2 m/s | 3 m/s | 4 m/s | a
+A disk of mass 2 kg and radius 0.5 m rotates at 10 rad/s about an axis through its center. A particle of mass 0.5 kg moving at 5 m/s collides and sticks to a point on the rim of the disk. What is the new angular velocity of the disk? | 10 rad/s | 6 rad/s | 4 rad/s | 2 rad/s | a
+In a half-wave rectifier circuit, if the peak input voltage is Vp , the peak inverse voltage (PIV) across the diode is: | 2Vp | Vp | Vp/2 | Vp/3 | b
+The probability of error in a digital communication system using BPSK (Binary Phase Shift Keying) is given by: | Q√(2Eb/No) | Q√(Eb/No) | Q√(4Eb/No) | Q(Eb/No) | a
+A solid cylinder of mass 3 kg and radius 0.5 m rolls down an incline without slipping. The incline makes an angle of 30∘30^\circ30∘ with the horizontal. What is the acceleration of the center of mass of the cylinder? | g | 3g/4 | g/2 | 2g/3 | d
+

@@ -1,4 +1,4 @@
-Which one of the following can be said as the correct way to declare a variable in Python? | int x = 10 | x := 10 | x = 10 | declare x = 10 | c
+Which one of the following can be said as the correct way to declare a variable in Python? | int x = 10 | x := 10 | x = 10 | declare x = 10 | b
 Which of the following is not a keyword in Python? | pass | class | include | return | c
 Which one of the following is used to create a new line in Python? | \n | \t | \b | \r | a
 Which one of the following is the correct extension of a Python file? | .pt | .py | .python | .pyth | b

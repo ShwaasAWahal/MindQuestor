@@ -1,0 +1,12 @@
+In a BJT, the Early effect (also known as base-width modulation) refers to: | The increase in collector current with increasing base width. | The increase in collector current with decreasing base width. | The reduction in collector current with increasing base width. | The reduction in collector current with decreasing base width. | b
+Which of the following amplifier configurations provides a 180-degree phase shift between the input and output? | Common Base | Common Emitter | Common Collector | Emitter Follower | b
+For a linear time-invariant (LTI) system with impulse response h(t)h(t)h(t), the output y(t)y(t)y(t) for an input x(t)x(t)x(t) is given by: | y(t)=x(t)∗h(t)y(t) = x(t) * h(t)y(t)=x(t)∗h(t) | y(t)=x(t)⋅h(t)y(t) = x(t) \cdot h(t)y(t)=x(t)⋅h(t) | y(t)=h(t)⋅x(t)y(t) = h(t) \cdot x(t)y(t)=h(t)⋅x(t) | y(t)=h(t)+x(t)y(t) = h(t) + x(t)y(t)=h(t)+x(t) | a
+In a microstrip line, which of the following parameters is most influential in determining the characteristic impedance? | Width of the strip | Thickness of the substrate | Dielectric constant of the substrate | All of the above | d
+A block of mass 2 kg is pushed along a frictionless horizontal surface with a force of 10 N over a distance of 5 m. The velocity of the block was initially 2 m/s. What is the final kinetic energy of the block?  | 25 J  | 50 J  | 100 J  | 200 J  | b
+A projectile is fired with an initial speed of 50 m/s at an angle of 30° to the horizontal. What is the maximum height reached by the projectile? Assume g=10 m/s2 | 25 m  | 50 m  | 31.25 m  | 12.5 m  | c
+A mass mmm is attached to a spring of spring constant kkk. If the system oscillates with an amplitude AAA, what is the total mechanical energy of the system?  | 1/2kA^2 | 1/2mA^2w^2 | kA | 1/2kAw | a
+A particle of mass mmm is moving with velocity v along a straight line at a distance d from a point O. What is the magnitude of the angular momentum of the particle about O? | mv^2d | mvd | mvd^2 | 1/2mvd | b
+A uniform disc of mass M and radius R is rotating about an axis passing through a point on its circumference and perpendicular to its plane. The moment of inertia of the disc about this axis is: | 3/2MR^2 | 5/2MR^2 | MR^2 | 7/5MR^2 | a
+
+
+

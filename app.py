@@ -41,10 +41,6 @@ class Result(db.Model):
     test_3_score = db.Column(db.Integer() ,default = None )
     test_4_score = db.Column(db.Integer() ,default = None )
     user_id = db.Column(db.Integer , db.ForeignKey('user.id'))
-    
-
-questions = {"What is 1 + 1" : [1 ,2 ,3 ,4] , "What is 2+2" : [3 , 5 , 6 , 8] , "what is 3 + 3" : [2 , 3 , 4 , 6]}
-
 
 
 @app.route("/")
@@ -103,8 +99,8 @@ def level(sub , level):
     if request.method == 'POST':
 
         UserId = current_user.id
-        if Result.query.filter_by(user_id = UserId).first():
-             user = Result.query.filter_by(id = UserId).first()
+        if Result.query.filter_by(user_id = UserId , subject = sub).first():
+             user = Result.query.filter_by(user_id = UserId , subject = sub).first()
         else:
             user = Result(subject = sub , user_id = UserId)
 
@@ -153,7 +149,7 @@ def logout():
 @app.route("/subjects/<sub>/<int:level>/result")
 def result(sub , level):
     UserId = current_user.id
-    user = Result.query.filter_by(user_id = UserId).first()
+    user = Result.query.filter_by(user_id = UserId , subject = sub).first()
     marks = None
     if level == 1:
             marks = user.test_1_score

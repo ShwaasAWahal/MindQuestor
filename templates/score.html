@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindQuestor - Score</title>
-    <link rel="stylesheet" href="{{url_for('static' , filename = 'styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="score-container">
         <h2>Your Score</h2>
+        
         <div class="pie-chart">
-          
-            <div class="pie-chart-circle" style="--score: {{marks}}0;"></div>
+            <div class="pie-chart-circle" style="--score: {{ marks }}0;"></div>
         </div>
+        
         <p>You scored <span id="score">{{ marks }}</span> out of 10</p>
+
+        <a href="main_web_page.html" class="home-button">Home</a>
     </div>
 </body>
 </html>

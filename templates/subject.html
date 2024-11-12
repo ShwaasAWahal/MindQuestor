@@ -20,10 +20,10 @@
     <div class="level-container">
         {% if current_user.is_authenticated %}
             <!-- Links to different levels in Math -->
-            <a href="/subjects/{{subject}}/1" class="level-box">Easy</a>
-            <a href="/subjects/{{subject}}/2" class="level-box">Medium</a>
-            <a href="/subjects/{{subject}}/3" class="level-box">Hard</a>
-            <a href="/subjects/{{subject}}/4" class="level-box">Mix Questions</a>
+            <a href="/subjects/{{subject}}/1" class="level-box">Level 1</a>
+            <a href="/subjects/{{subject}}/2" class="level-box">Level 2</a>
+            <a href="/subjects/{{subject}}/3" class="level-box">Level 3</a>
+            <a href="/subjects/{{subject}}/4" class="level-box">Level 4</a>
         {% else %}
             <a href="{{url_for('LogIn')}}" class="level-box">Log in</a>
             <a href="{{url_for('SignUp')}}" class="level-box">Sign Up</a>

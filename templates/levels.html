@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindQuestor - Test</title>
+    <title>MindQuestor - Level 1 Questions</title>
     <link rel="stylesheet" href="{{url_for('static' , filename = 'level.css')}}">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
@@ -12,8 +13,8 @@
     </header>
     
     <div class="question-container">
-        <form action="#" id="quizForm" . method = 'post'>
-          
+        <form action = "#" id="quizForm" . method = 'post'>
+            <!-- Questions -->
             {% for question in questions %}
             <div class="question">
                 <p>{{ loop.index }}. {{ question }}</p>
@@ -30,7 +31,7 @@
 
     <script>
         function submitQuiz() {
-           
+            // Display a popup message
             alert("You have submitted your answers!");
         }
     </script>

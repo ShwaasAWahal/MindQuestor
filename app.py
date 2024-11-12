@@ -1,4 +1,4 @@
-from flask import Flask , render_template , url_for , request , redirect
+from flask import Flask , render_template , url_for , request , redirect , flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import   LoginManager, login_user , current_user , UserMixin , logout_user
@@ -82,20 +82,63 @@ def SignUp():
             already_exists = True
     return render_template('signup.html' , exists = already_exists)
 
+@app.route("/forgotpassword" , methods = ['GET' , 'POST'])
+def forgot():
+    if request.method == "POST":
+        print(request.form['email'])
+        user = User.query.filter_by(Email = request.form["email"]).first()
+        print(user)
+        if user:
+            new_pass = request.form['password']
+            print(new_pass)
+            con_pass = request.form['con_password']
+            print(con_pass)
+            if new_pass == con_pass:
+                user.password = bcrypt.generate_password_hash(new_pass).decode("utf-8")
+                db.session.commit()
+                return redirect(url_for('home'))
+    return render_template("forgot.html")
+
 
 @app.route("/subjects/<sub>")
 def Subjects(sub):
-    
+    if sub == "math":
+        sub = "Engineering Mathematics"
+    elif sub == "physics":
+        sub = "Electromagnetsim and Mechanics"
+    elif sub == "python":
+        sub = "Computational Thinking & Programming"
+    elif sub == "java":
+        sub = "Java"
+
     return render_template("subject.html" , subject = sub)
 
 @app.route("/subjects/<sub>/<int:level>" , methods = ['GET' , 'POST'])
 def level(sub , level):
     marks = 0
+    answered_all = True
+    
     if level != 4:
         questions = load_questions(sub , level)
     else:
          return redirect(url_for('error'))
-    print(questions.values())
+    
+    all_answers = []
+    for i in questions.values():
+        all_answers.append(i[4].strip())
+
+    print(all_answers)
+
+    if level == 1:
+        dif = "Easy"
+    elif level == 2:
+        dif = "Medium"
+    elif level == 3:
+        dif = "Hard"
+    elif level == 4:
+        dif = "Mixed"
+
+    
     if request.method == 'POST':
 
         UserId = current_user.id
@@ -103,33 +146,37 @@ def level(sub , level):
              user = Result.query.filter_by(user_id = UserId , subject = sub).first()
         else:
             user = Result(subject = sub , user_id = UserId)
+        
 
-        j = 0
-        for i in questions:
-            correct_answer = questions[i][4].strip()
-            values = list(dict(request.form).values())
-            if j < len(values):
-                answer = values[j].strip()
-            j += 1
-            
-            if answer == correct_answer:
-                marks += 2
+        values = list(dict(request.form).values())
+        print(values)
+        if len(values) == len(all_answers):
+            for i in range(len(values)):
+                answer = values[i].strip()
+                correct_answer = all_answers[i].strip()
+                if answer == correct_answer:
+                    marks += 2
 
+            if level == 1:
+                user.test_1_score = marks
+            elif level == 2:
+                user.test_2_score = marks
+            elif level == 3:
+                user.test_3_score = marks
+            elif level == 4:
+                user.test_4_score = marks
 
-        if level == 1:
-            user.test_1_score = marks
-        elif level == 2:
-            user.test_2_score = marks
-        elif level == 3:
-            user.test_3_score = marks
-        elif level == 4:
-            user.test_4_score = marks
-    
-        db.session.add(user)
-        db.session.commit()
-        print(marks)
-        return redirect(url_for('result' , sub = sub , level = level))
-    return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = level)
+            if Result.query.filter_by(user_id = UserId , subject = sub).first():
+                db.session.add(user)
+
+            db.session.commit()
+            print(marks)
+            return redirect(url_for('result' , sub = sub , level = level))
+        else:
+            flash("Please Attempt all questions")
+            answered_all = False
+    print(answered_all)
+    return render_template("levels.html" , questions = questions , subject = sub.capitalize() , level = dif , answered_all = answered_all)
 
 @app.route("/account")
 def account():

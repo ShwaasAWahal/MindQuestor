@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 {% if current_user.is_authenticated %}
-                    <li><a href="{{url_for('account')}}">Account</a></li>
+                    <li><a href="{{url_for('account')}}">{{current_user.user_name}}</a></li>
                 {% else %}
                     <li><a href="{{url_for('LogIn')}}">Log In</a></li>
                     <li><a href="{{url_for('SignUp')}}">Sign Up</a></li>

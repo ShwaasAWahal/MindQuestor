@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindQuestor - Level 1 Questions</title>
+    <title>MindQuestor - Test</title>
     <link rel="stylesheet" href="{{url_for('static' , filename = 'level.css')}}">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
-        <h1>{{ subject }} Level {{ level }} Questions</h1>
+        <h1>{{ subject }} {{ level }} Questions</h1>
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for catagor,message in messages %}
+                    <h2>{{message}}</h2>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     </header>
     
     <div class="question-container">
-        <form action = "#" id="quizForm" . method = 'post'>
-            <!-- Questions -->
+        <form action="#" id="quizForm" method = 'post'>
+          
             {% for question in questions %}
             <div class="question">
-                <p>{{ loop.index }}. {{ question }}</p>
+                <p>{{ loop.index }}. {{ question }} (2 marks)</p>
                 <label><input type="radio" name="q{{ loop.index }}" value="a"> A) {{ questions[question][0] }}</label><br>
                 <label><input type="radio" name="q{{ loop.index }}" value="b"> B) {{ questions[question][1] }}</label><br>
                 <label><input type="radio" name="q{{ loop.index }}" value="c"> C) {{ questions[question][2] }}</label><br>
@@ -25,15 +32,11 @@
             </div>
             {% endfor %}
 
-            <button type="submit" onclick="submitQuiz()">Submit</button>
+            <button type="submit">
+                Submit
+            </button>
         </form>
     </div>
 
-    <script>
-        function submitQuiz() {
-            // Display a popup message
-            alert("You have submitted your answers!");
-        }
-    </script>
 </body>
 </html>

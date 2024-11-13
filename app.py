@@ -40,6 +40,7 @@ class Result(db.Model):
     test_2_score = db.Column(db.Integer() ,default = None )
     test_3_score = db.Column(db.Integer() ,default = None )
     test_4_score = db.Column(db.Integer() ,default = None )
+    test_4_score2 = db.Column(db.Integer() ,default = None )
     user_id = db.Column(db.Integer , db.ForeignKey('user.id'))
 
 
@@ -122,14 +123,18 @@ def level(sub , level):
     marks = 0
     answered_all = True
     
-    if level != 4:
-        questions = load_questions(sub , level)
-    else:
-         return redirect(url_for('error'))
-    
+    questions = load_questions(sub , level)
+
+    score = 0
+
     all_answers = []
+    all_scores = []
     for i in questions.values():
         all_answers.append(i[4].strip())
+        if level == 4:
+            all_scores.append(i[5])
+    
+    
 
     print(all_answers)
 
@@ -160,6 +165,8 @@ def level(sub , level):
                 correct_answer = all_answers[i].strip()
                 if answer == correct_answer:
                     marks += 2
+                    if level == 4:
+                        score += all_scores[i]
 
             if level == 1:
                 user.test_1_score = marks
@@ -169,13 +176,15 @@ def level(sub , level):
                 user.test_3_score = marks
             elif level == 4:
                 user.test_4_score = marks
+                user.test_4_score2 = score
 
-            if Result.query.filter_by(user_id = UserId , subject = sub).first():
+            if not Result.query.filter_by(user_id = UserId , subject = sub).first():
                 db.session.add(user)
 
             db.session.commit()
             print(marks)
-            return redirect(url_for('result' , sub = sub , level = level))
+            print(score)
+            return redirect(url_for('result' , sub = sub , level = level , score = score))
         else:
             flash("Please Attempt all questions")
             answered_all = False
@@ -202,6 +211,8 @@ def result(sub , level):
     UserId = current_user.id
     user = Result.query.filter_by(user_id = UserId , subject = sub).first()
     marks = None
+    score = None
+    scoreper = None
     if level == 1:
             marks = user.test_1_score
     elif level == 2:
@@ -210,8 +221,10 @@ def result(sub , level):
             marks = user.test_3_score
     elif level == 4:
             marks = user.test_4_score
+            score = user.test_4_score2
+            scoreper = (score / 240) * 100
 
-    return render_template("score.html" , marks = marks)
+    return render_template("score.html" , marks = marks , level = level ,score = score , scoreper = scoreper)
 
 
 @app.route("/error")

@@ -58,6 +58,9 @@ def load_questions(subject,level):
             parts_hard = line_hard.split("|")
             
             question[parts_hard[0]] = [parts_hard[1] , parts_hard[2] , parts_hard[3] , parts_hard[4] , parts_hard[5] , 30]
+        feasy.close()
+        fmed.close()
+        fhard.close()
         print(len(question))
         return question
     

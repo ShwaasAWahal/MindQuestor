@@ -210,21 +210,26 @@ def logout():
 def result(sub , level):
     UserId = current_user.id
     user = Result.query.filter_by(user_id = UserId , subject = sub).first()
-    marks = None
-    score = None
-    scoreper = None
-    if level == 1:
-            marks = user.test_1_score
-    elif level == 2:
-            marks = user.test_2_score
-    elif level == 3:
-            marks = user.test_3_score
-    elif level == 4:
-            marks = user.test_4_score
-            score = user.test_4_score2
-            scoreper = (score / 240) * 100
+    marks = 0
+    score = 0
+    scoreper = 0
+    if level != 4:
+        if level == 1:
+                marks = user.test_1_score
+        elif level == 2:
+                marks = user.test_2_score
+        elif level == 3:
+                marks = user.test_3_score
+        marksper = (marks/10) * 100
+        scoreper = (score / 240) * 100
+    else:
+        marks = user.test_4_score
+        marksper = (marks/24) * 100
+        score = user.test_4_score2
+        scoreper = (score / 240) * 100
+    
 
-    return render_template("score.html" , marks = marks , level = level ,score = score , scoreper = scoreper)
+    return render_template("score.html" , marks = marks , level = level ,score = score , scoreper = scoreper , marksper = marksper)
 
 
 @app.route("/error")

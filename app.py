@@ -57,13 +57,17 @@ def LogIn():
             password = request.form['password']
             if bcrypt.check_password_hash(user.password , password ):
                 login_user(user)
-                return redirect(url_for("home" ))    
+                return redirect(url_for("home" ))
+            else:
+                flash("Wrong Password! Try Again")
+        else:
+            flash("This user does not exist!")    
     return render_template('login.html')
+    
 
 @app.route("/signup" , methods = ['GET' , 'POST'])
 def SignUp():
     
-    already_exists = False
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     if request.method == 'POST':
@@ -79,8 +83,8 @@ def SignUp():
             db.session.commit()
             return redirect(url_for('LogIn'))
         else:
-            already_exists = True
-    return render_template('signup.html' , exists = already_exists)
+            flash("This user already exists!Please try again")
+    return render_template('signup.html')
 
 @app.route("/forgotpassword" , methods = ['GET' , 'POST'])
 def forgot():
@@ -103,15 +107,15 @@ def forgot():
 @app.route("/subjects/<sub>")
 def Subjects(sub):
     if sub == "math":
-        sub = "Engineering Mathematics"
+        fullSub = "Engineering Mathematics"
     elif sub == "physics":
-        sub = "Electromagnetsim and Mechanics"
+        fullSub = "Electromagnetsim and Mechanics"
     elif sub == "python":
-        sub = "Computational Thinking & Programming"
+        fullSub = "Computational Thinking & Programming"
     elif sub == "java":
-        sub = "Java"
+        fullSub = "Java"
 
-    return render_template("subject.html" , subject = sub)
+    return render_template("subject.html" , subject = sub , fullSub = fullSub)
 
 @app.route("/subjects/<sub>/<int:level>" , methods = ['GET' , 'POST'])
 def level(sub , level):

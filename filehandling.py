@@ -12,9 +12,9 @@ def load_questions(subject,level):
 
  
     while len(random_set) < 5:
-        random_set.add(random.randint(0 , 8))
+        random_set.add(random.randint(0 , 9))
     
-
+    print(random_set)
     question = {}
     with open(f"static/subjects/{subject}/{dif}.txt","r",encoding="utf-8") as f:
         lines = f.readlines()

@@ -9,12 +9,28 @@
 <body>
     <div class="score-container">
         <h2>Your Score</h2>
-        
-        <div class="pie-chart">
-            <div class="pie-chart-circle" style="--score: {{ marks }}0;"></div>
-        </div>
-        
-        <p>You scored <span id="score">{{ marks }}</span> out of 10</p>
+        {% if level == 4 %}
+            <div class="pie-chart">
+                <div class="pie-chart-circle" style="--score: {{ marks }}0;"></div>
+            </div>
+            
+            <p>You scored <span id="score">{{ marks }}</span> marks out of 24</p>
+
+            
+            <div class="pie-chart">
+                <div class="pie-chart-circle" style="--score: {{ scoreper }};"></div>
+            </div>
+            
+            <p>You scored <span id="score">{{ score }}</span> score out of 240</p>
+
+        {% else %}
+            <div class="pie-chart">
+                <div class="pie-chart-circle" style="--score: {{ marks }}0;"></div>
+            </div>
+            
+            <p>You scored <span id="score">{{ marks }}</span> marks out of 10</p>
+
+        {% endif %}
 
         <a href="{{url_for('home')}}" class="home-button">Home</a>
     </div>

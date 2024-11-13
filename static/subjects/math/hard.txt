@@ -1,19 +1,10 @@
-A sequence {an}\{a_n\}{an} is said to be convergent if: | The terms of the sequence become increasingly large as n→∞n \to \inftyn→∞. | The terms of the sequence oscillate around a fixed point. | There exists a real number LLL such that lim⁡n→∞an=L\lim_{n \to \infty} a_n =Llimn→∞an=L. | The sequence has a finite number of terms. | c 
-For a monotone increasing sequence {an}\{a_n\}{an} that is bounded above, which of the following is true?| The sequence diverges to infinity. | The sequence converges to a limit. |The sequence is always a constant sequence. | The sequence has no limit.| b 
-. A sequence is called a Cauchy sequence if: | It has a limit as n→∞n \to \inftyn→∞. | The terms of the sequence remain close together as n→∞n \to \inftyn→∞. | It is an unbounded sequence. | It diverges as n→∞n \to \inftyn→∞. | b
-According to the Bolzano-Weierstrass Theorem, every bounded sequence in R\mathbb{R}R: | Has a unique limit. | Has at least one subsequence that converges. | Oscillates between two fixed values. | Diverges to infinity. | b
+A sequence an is said to be convergent if: | The terms of the sequence become increasingly large as n→∞n to n→∞. | The terms of the sequence oscillate around a fixed point. | There exists a real number L such that lim⁡ n→∞ an = L\lim_{n \to \infty} an = L lim n→∞ an = L. | The sequence has a finite number of terms. | c 
+For a monotone increasing sequence an that is bounded above, which of the following is true?| The sequence diverges to infinity. | The sequence converges to a limit. |The sequence is always a constant sequence. | The sequence has no limit.| b 
+A sequence is called a Cauchy sequence if: | It has a limit as n→∞ to n→∞. | The terms of the sequence remain close together as n→∞ to n→∞. | It is an unbounded sequence. | It diverges as n→∞n to n→∞. | b
+According to the Bolzano-Weierstrass Theorem, every bounded sequence in R: | Has a unique limit. | Has at least one subsequence that converges. | Oscillates between two fixed values. | Diverges to infinity. | b
 Which of the following is a convergence test for an infinite series? | Limit comparison test | Monotone convergence theorem | Bolzano-Weierstrass theorem | Archimedean property | a 
-Which of the following is true for an alternating series? | The terms must increase as nnn increases. | The terms must alternate in sign. | The series converges only if it is bounded above. | The series diverges if the terms decrease to zero. | b 
-A function f(x)f(x)f(x) is continuous on an interval if: | f(x)f(x)f(x) is differentiable on that interval. | f(x)f(x)f(x) is defined at every point in that interval. | f(x)f(x)f(x) has no jumps or breaks on that interval. | f(x)f(x)f(x) has a maximum in that interval. | c 
-The Intermediate Value Property states that: |  A continuous function on a closed interval achieves a maximum and minimum value. |  A continuous function takes on every value between its maximum and minimum on a closed interval. |  A continuous function has an absolute maximum. |  A continuous function on a closed interval is always differentiable. | b 
-The limit superior of a sequence {an}\{a_n\}{an} is defined as: |The smallest number that is greater than or equal to all terms of the sequence. | The largest limit of all possible subsequences of {an}\{a_n\}{an}. |  The average value of the sequence. | The smallest limit of all possible subsequences of {an}\{a_n\}{an}. |  b 
-A sequence is called a Cauchy sequence if: |  It has a limit as n→∞n \to \inftyn→∞. | The terms of the sequence remain close together as n→∞n \to \inftyn→∞. |  It is an unbounded sequence. |  It diverges as n→∞n \to \inftyn→∞ | b
-
-
-
-
-
-
-
-
-
+Which of the following is true for an alternating series? | The terms must increase as n increases. | The terms must alternate in sign. | The series converges only if it is bounded above. | The series diverges if the terms decrease to zero. | b 
+A function f(x) is continuous on an interval if: | f(x) is differentiable on that interval. | f(x) is defined at every point in that interval. | f(x) has no jumps or breaks on that interval. | f(x) has a maximum in that interval. | c 
+The Intermediate Value Property states that: | A continuous function on a closed interval achieves a maximum and minimum value. |  A continuous function takes on every value between its maximum and minimum on a closed interval. |  A continuous function has an absolute maximum. |  A continuous function on a closed interval is always differentiable. | b 
+The limit superior of a sequence an is defined as: |The smallest number that is greater than or equal to all terms of the sequence. | The largest limit of all possible subsequences of an. |  The average value of the sequence. | The smallest limit of all possible subsequences of an. |  b 
+A sequence is called a Cauchy sequence if: |  It has a limit as n→∞n to n→∞. | The terms of the sequence remain close together as n→∞n to n→∞. |  It is an unbounded sequence. |  It diverges as n→∞n to n→∞ | b

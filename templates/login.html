@@ -10,6 +10,13 @@
     <div class="container">
         <div class="form-box">
             <h2>Log In</h2>
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for catagor,message in messages %}
+                    <h4>{{message}}</h4>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
             <form action="#" method="post">
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>

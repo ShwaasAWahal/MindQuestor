@@ -110,7 +110,7 @@ def Subjects(sub):
     if sub == "math":
         fullSub = "Engineering Mathematics"
     elif sub == "physics":
-        fullSub = "Electromagnetsim and Mechanics"
+        fullSub = "Electromagnetism and Mechanics"
     elif sub == "python":
         fullSub = "Computational Thinking & Programming"
     elif sub == "java":
